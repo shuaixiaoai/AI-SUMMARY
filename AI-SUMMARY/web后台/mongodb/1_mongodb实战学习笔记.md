@@ -1,4 +1,5 @@
-## javascript shell操作mongodb
+## javascript shell操作mongodb基础命令方法
+***
 1、启动： `brew services start mongodb`;
 2、重启： `brew services restart mongodb`
 ### 插入和查询
@@ -47,6 +48,7 @@
 3、 删除集合及其附属的文档 `db.users.drop()`
 
 
+***
 ## 使用索引创建和查询
 
 1、创建大集合， count命令会计算所有文档， find()只会显示前20条， 可使用it命令显示其余结果；
@@ -60,7 +62,7 @@
 2、 创建索引， 使用createIndex()方法为num创建索引 `db.numbers.createIndex({num: 1})` ， 会创建除了_id之外额外的索引
 3、通过`db.numbers.getIndexes()`方法来检验索引是否创建成功
 
-
+***
 ## MongoDB基本管理
 1、 获取数据库信息    -->  `show dbs` 打印系统中所有的数据库列表信息
 2、 展示数据库里所有的集合   --> `show collections`
