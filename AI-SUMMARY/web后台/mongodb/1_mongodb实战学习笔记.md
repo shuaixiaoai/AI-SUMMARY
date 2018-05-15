@@ -72,7 +72,7 @@
 1、数据库命令， 通常是管理性的。 如上， stats方法包装了shell命令的方法调用， 通常， 我们可以通过给runCommand()方法传递参数来调用任意命令
 如： `db.runCommand({ dbstats: 1 }), db.runCommand({ collstats: "numbers" })`
 2、 可以使用`db.runCommand`查看内部机制
-3、获取帮助。 db.help() 打印通常数据库使用的操作方法， 例如： `db.numbers.help()`可以找到像是的方法列表；
+3、获取帮助。 db.help() 打印通常数据库使用的操作方法， 例如： `db.numbers.help()`可以找到像是的方法列表；     
 4、查看实现代码， 例如： db.numbers.save
 
 
