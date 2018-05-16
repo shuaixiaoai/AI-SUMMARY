@@ -29,3 +29,22 @@
 | SET           | 包含字符串的无序收集器， 并且被包含的每个字符串都是独一无二的， 各不相同 | 添加、获取、移出单个元素； 检测一个元素是否存在于集合中； 计算交集、并集、差集； 从集合里面取随机值|
 | HASH          | 包含键值对的无序散列表                     | 添加、获取、移出单个键值对、获取所有键值对 |
 | ZSET          | 字符串成员与浮点数分值之间的有序映射， 元素的排列顺序由分值的大小决定 | 添加、获取、删除单个元素； 根据分值范围或者成员来获取元素|
+
+
+| 模块         | 元素     |  code(element)                |
+| ------------ | -------- | ---------------------------- |
+| 用户管理     | 新增     | userManager:btn_add          |
+| 用户管理     | 修改     | userManager:btn_edit         |
+| 用户管理     | 删除     | userManager:btn_del          |
+|  |  |  |
+| 角色权限管理 | 新增 | groupManager:btn_add |
+| 角色权限管理 | 修改 | groupManager:btn_edit |
+| 角色权限管理 | 删除 | groupManager:btn_del |
+| 角色权限管理 | 关联用户 | groupManager:btn_userManager |
+| 角色权限管理 | 权限分配 | groupManager:btn_resourceManager |
+| 角色权限管理 | 权限分配=>保存 | groupManager_menu |
+| 角色权限管理 | 权限分配=>元素树 | groupManager_element |
+|  |  |  |
+| 角色类型管理 | 新增     | groupTypeManager:btn_add     |
+| 角色类型管理 | 修改     | groupTypeManager:btn_edit    |
+| 角色类型管理 | 删除     | groupTypeManager:btn_del     |
