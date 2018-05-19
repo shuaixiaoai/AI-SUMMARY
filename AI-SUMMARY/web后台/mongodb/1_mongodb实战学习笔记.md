@@ -83,6 +83,8 @@
 
 3、 `db.stats(), db.numbers.stats()`  -->  可查看数据库、某个集合的详细信息。
 
+4、 输出数据库 `db.dropDatabase()`
+
 ### 命令如何执行
 1、数据库命令， 通常是管理性的。 如上， stats方法包装了shell命令的方法调用， 通常， 我们可以通过给runCommand()方法传递参数来调用任意命令
 如： `db.runCommand({ dbstats: 1 }), db.runCommand({ collstats: "numbers" })`
