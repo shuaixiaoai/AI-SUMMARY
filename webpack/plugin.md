@@ -25,20 +25,22 @@ module.export = {
     ]
 }
 ```
-
-#### webpack启动后， 在读取配置的过程中会先执行new BasicPlugin(options), 初始化一个BasicPlugin并获得其实例。在初始化compiler对象后， 在调用basicPlugin。 apply(compiler)为插件插入实例传入compiler对象。 插件实例获得compiler后， 就可以通过compiler.plugin（事件名， 回调函数）监听到webpack广播的事件并且可以通过compiler对象去操作webpack。
-
-
-### Compiler 和 Compilation
-#### `Compiler`对象包含了webpack环境的所有配置信息， 包含`options、loaders、plugins`等信息。 这个对象在webpack启动时被初始化， 它是全局唯一的， 可以简单地将它理解为webpack的实例。
-#### `Compilation`对象包含了当前的模块资源、编译生成资源、变化的文件等等。 当webpack以开发模式运行时， 每当检测到一个文件发生变化， 便有一次新的Compilation被创建。 Compilation也提供了很多事件回调供插件进行扩展。 通过Compilation也能读取到Compiler对象。
-
-#### 二者区别： `Compiler代表了整个webpack从启动到关闭的生命周期、而Compilation只代表一次新的编译`。
+```
+# webpack启动后， 在读取配置的过程中会先执行new BasicPlugin(options), 初始化一个BasicPlugin并获得其实例。在初始化compiler对象后， 在调用basicPlugin。 apply(compiler)为插件插入实例传入compiler对象。 插件实例获得compiler后， 就可以通过compiler.plugin（事件名， 回调函数）监听到webpack广播的事件并且可以通过compiler对象去操作webpack。
 
 
-### 事件流
+# Compiler 和 Compilation
+# `Compiler`对象包含了webpack环境的所有配置信息， 包含`options、loaders、plugins`等信息。 这个对象在webpack启动时被初始化， 它是全局唯一的， 可以简单地将它理解为webpack的实例。
+# `Compilation`对象包含了当前的模块资源、编译生成资源、变化的文件等等。 当webpack以开发模式运行时， 每当检测到一个文件发生变化， 便有一次新的Compilation被创建。 Compilation也提供了很多事件回调供插件进行扩展。 通过Compilation也能读取到Compiler对象。
 
-#### webpack就像一条生产线， 要经过一系列的处理流程后才能将源文件转换成输出结果。 这条生成线的每个处理流程的职责是单一的， 多个流程之间存在依赖关系， 只有完成当前处理后才能提交给下一个流程去处理。  webpack在运行的过程中会广播事件， 插件只需要监听它关心的事件， 就能加入了这条生产线中， 去修改生产线的运作。 webpack的事件流机制保证了插件的有序性， 使得整个系统的扩展性良好。 事件流机制（观察者模式）：
+# 二者区别： `Compiler代表了整个webpack从启动到关闭的生命周期、而Compilation只代表一次新的编译`。
+
+
+# 事件流
+
+# webpack就像一条生产线， 要经过一系列的处理流程后才能将源文件转换成输出结果。 这条生成线的每个处理流程的职责是单一的， 多个流程之间存在依赖关系， 只有完成当前处理后才能提交给下一个流程去处理。  webpack在运行的过程中会广播事件， 插件只需要监听它关心的事件， 就能加入了这条生产线中， 去修改生产线的运作。 webpack的事件流机制保证了插件的有序性， 使得整个系统的扩展性良好。 事件流机制（观察者模式）：
+```
+
 ```
 /**
 *   广播事件
