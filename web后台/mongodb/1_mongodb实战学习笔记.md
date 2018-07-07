@@ -24,25 +24,27 @@
 3、删除字段 `db.users.update({ username: "shuaixiaoai" }, { "$unset": {country: 1 } })`
 
 ### 更新复杂字段
-`db.users.update({ username: "shuaixiaoai" },
+```
+db.users.update({ username: "shuaixiaoai" },
   { $set: {
     favorites: {
       cities: ["Chicago", "Cheyenne"],
       movies: ["Casablanca", "For  a Few Dollars", "The String"]
     }
   }
-})`
+})
+```
 
 ### 高级更新
 1、给列表添加数据， 最好使用$push、$addToSet, 第二个是唯一的，阻止了重复的数据
 
-`
+```
   db.users.update({ "favorites.movies": "Casablanca" },
     { $addToSet: { "favorites.movies": "The Maltese Falcon" }},
       false,
       true
   )
-`
+```
 
 其中， 第一个参数为查询条件， 第二个参数为$addToSet添加的The Maltese Falcon， 第三个参数false表示是否允许upset, 这个命令告诉更新操作，
 当一个文档不存在的时候是否插入它， 这取决于更新操作符是操作符更新还是替换更新， 第四个参数表示是否是多个更新。 默认情况下， mongoDB更新只针
